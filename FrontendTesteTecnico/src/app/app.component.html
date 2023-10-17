@@ -1,0 +1,25 @@
+<div class="container">
+  <h3 style="text-align: center;"> Olá! Qual é o seu nome? </h3>
+
+  <form (ngSubmit)="enviar()"> 
+
+    <div>
+      <label> Nome</label>
+      <input type="text" class="form-control" id="nome" [(ngModel)]="nome" name="nome">
+    </div>
+
+    <br />
+
+    <!-- Apresentando a lista de cumprimentos recebidos do backend -->
+    <div *ngFor="let cumprimento of cumprimentos" class="list">
+      {{cumprimento}}
+      
+      <!-- Utilizando o *ngIf para verificar se o nome presente no cumprimento é HDRUP, 
+           caso verdadeiro, apresentar o icone de coração -->
+      <mat-icon *ngIf="isHDRUP(cumprimento)" fontIcon="favorite" class="icon"></mat-icon>
+    </div>
+
+    <button class="btn btn-primary mb-2" type="submit" style="width: 100%;">Enviar</button>
+
+  </form>
+</div>
